@@ -3,6 +3,7 @@ set encoding=utf-8
 set foldmethod=indent
 set autochdir
 set noshowmode "hide default mode indicator
+set signcolumn=yes
 
 "Line numeration
 set number "show current line number
