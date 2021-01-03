@@ -2,6 +2,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 "Themes
 Plug 'morhetz/gruvbox'
+"Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'jose-villar/lightline-gruvbox.vim'
 
 "Tree
 Plug 'scrooloose/nerdtree'
