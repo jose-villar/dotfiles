@@ -1,3 +1,7 @@
 {
   "diagnostic.checkCurrentLine":true,
+  "diagnostic.warningSign":"",
+  "diagnostic.hintSign":"",
+  "diagnostic.infoSign":"",
+  "diagnostic.errorSign":""
 }
