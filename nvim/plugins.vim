@@ -4,7 +4,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
 "Status bar
 Plug 'itchyny/lightline.vim'
-Plug 'jose-villar/lightline-gruvbox.vim'
 "Fonts
 Plug 'ryanoasis/vim-devicons'
 
