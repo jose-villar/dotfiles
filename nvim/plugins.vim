@@ -2,7 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 "Themes
 Plug 'morhetz/gruvbox'
-"Plug 'shinchu/lightline-gruvbox.vim'
+"Status bar
 Plug 'itchyny/lightline.vim'
 Plug 'jose-villar/lightline-gruvbox.vim'
 
@@ -26,5 +26,8 @@ Plug 'sheerun/vim-polyglot' "Also helps for indenting properly
 
 "Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+"Git
+Plug 'mhinz/vim-signify'
 
 call plug#end()
