@@ -24,9 +24,7 @@ Plug 'jiangmiao/auto-pairs'
 "Syntax
 Plug 'sheerun/vim-polyglot' "Also helps for indenting properly
 
-"PANDOC
-"Plug 'vim-pandoc/vim-pandoc-syntax'
-"Plug 'vim-pandoc/vim-pandoc'
+"Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
