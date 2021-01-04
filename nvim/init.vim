@@ -3,6 +3,7 @@ set encoding=utf-8
 set foldmethod=indent
 set noshowmode "hide default mode indicator
 set signcolumn=yes
+set scrolloff=999 "number of context lines around the cursor
 
 "Line numeration
 set number "show current line number
