@@ -17,3 +17,7 @@ map <leader>mp :MarkdownPreview<CR>
 " external
 nmap <leader>bp :! pandoc -t beamer %:t -o %.pdf<CR>
 nmap <leader>op :! chromium %.pdf &<CR>
+
+"snippets
+imap cl<Tab> console.log("");<Esc>2hi
+imap sout<Tab> System.out.println("");<Esc>2hi
