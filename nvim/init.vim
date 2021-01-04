@@ -30,14 +30,14 @@ set expandtab "Use spaces instead of tab characters
 set tabstop=2
 set shiftwidth=2 "One tab will use the width of 2 characters
 set softtabstop=2
-set smarttab
+set smarttab 
 
 "Cursor
 set cursorline
 
 "Invisible characters
 set list
-set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»
+set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
 
 "Indentation
 set cindent
