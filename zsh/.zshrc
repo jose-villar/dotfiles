@@ -12,4 +12,7 @@ bindkey -v
 export KEYTIMEOUT=1
 # Show different colors for files and directories
 alias ls='ls --color=auto'
+
 alias t='tmux'
+
+alias whatsmyip='wget http://ipecho.net/plain -O - -q ; echo'
