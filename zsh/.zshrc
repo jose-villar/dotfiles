@@ -12,4 +12,4 @@ bindkey -v
 export KEYTIMEOUT=1
 # Show different colors for files and directories
 alias ls='ls --color=auto'
-
+alias t='tmux'
