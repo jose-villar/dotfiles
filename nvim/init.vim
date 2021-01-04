@@ -1,7 +1,6 @@
 set clipboard=unnamedplus
 set encoding=utf-8
 set foldmethod=indent
-set autochdir
 set noshowmode "hide default mode indicator
 set signcolumn=yes
 
@@ -14,6 +13,16 @@ set numberwidth=1
 set incsearch " incremental searching
 set ignorecase " searches are case insensitive...
 set smartcase  " ... unless they contain at least one capital letter
+
+"File searching
+set autochdir
+set wildmenu
+"To find a file
+":find **/<fileName>
+":ls
+":b
+"To find a word inside the files
+":vim /word/g **/*
 
 "Tabs and spaces
 set expandtab "Use spaces instead of tab characters
@@ -34,6 +43,7 @@ set cindent
 set autoindent
 
 syntax enable
+filetype plugin on
 
 so ~/.config/nvim/plugins.vim
 so ~/.config/nvim/plugin-config.vim
@@ -44,7 +54,8 @@ let g:gruvbox_contrast_dark ='hard'
 highlight Normal ctermbg=NONE "Prevents colorscheme overriding console bg color
 highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
  "Color of popup windows
-highlight NormalFloat ctermbg=0 ctermfg=4 
+highlight NormalFloat ctermbg=0 ctermfg=4
+highlight SignColumn ctermbg=233 ctermfg=4
 
 augroup templates
   autocmd BufNewFile *.md 0r ~/.config/nvim/templates/skeleton.md
