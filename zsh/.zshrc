@@ -14,8 +14,8 @@ bindkey -v
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jose/.zshrc'
 
-autoload -Uz compinit
-compinit
+#autoload -Uz compinit
+#compinit
 # End of lines added by compinstall
 
 # Theme
@@ -35,5 +35,10 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 # Other plugins
 source ~/.dotfiles/zsh/other-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source ~/.dotfiles/zsh/other-plugins/zsh-z/zsh-z.plugin.zsh
+# The following line must go anywhere after sourcing the z plugin
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
 # Must be at the end of the file
 source ~/.dotfiles/zsh/other-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
