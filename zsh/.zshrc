@@ -30,9 +30,10 @@ alias q="exit"
 alias t="tmux"
 alias whatsmyip="wget http://ipecho.net/plain -O - -q ; echo"
 
+# Enable searching through history
+bindkey '^R' history-incremental-pattern-search-backward
+
 # Other plugins
-
-
 
 # Must be at the end of the file
 source ~/.dotfiles/zsh/other-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
