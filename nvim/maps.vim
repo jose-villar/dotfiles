@@ -21,3 +21,4 @@ nmap <leader>op :! chromium %.pdf &<CR>
 "snippets
 imap cl<Tab> console.log("");<Esc>2hi
 imap sout<Tab> System.out.println("");<Esc>2hi
+imap mds<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/slides.md<CR>kdd15ja
