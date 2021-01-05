@@ -58,10 +58,6 @@ highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
 highlight NormalFloat ctermbg=0 ctermfg=4
 highlight SignColumn ctermbg=233 ctermfg=4
 
-augroup templates
-  autocmd BufNewFile *.md 0r ~/.config/nvim/templates/skeleton.md
-augroup END
-
 "*cterm-colors*
 "NR-16   NR-8    COLOR NAME 
 "0       0       Black
