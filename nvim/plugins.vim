@@ -31,4 +31,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 "Git
 Plug 'mhinz/vim-signify'
 
+"Css
+Plug 'ap/vim-css-color'
 call plug#end()
