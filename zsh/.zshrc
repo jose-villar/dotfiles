@@ -34,6 +34,6 @@ alias whatsmyip="wget http://ipecho.net/plain -O - -q ; echo"
 bindkey '^R' history-incremental-pattern-search-backward
 
 # Other plugins
-
+source ~/.dotfiles/zsh/other-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Must be at the end of the file
 source ~/.dotfiles/zsh/other-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
