@@ -4,6 +4,7 @@ set foldmethod=indent
 set noshowmode "hide default mode indicator
 set signcolumn=yes
 set scrolloff=999 "number of context lines around the cursor
+set spell spelllang=en,es
 
 "Line numeration
 set number "show current line number
