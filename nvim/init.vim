@@ -4,6 +4,11 @@ set foldmethod=indent
 set noshowmode "hide default mode indicator
 set signcolumn=yes
 set scrolloff=999 "number of context lines around the cursor
+
+"Have unwritten changes to a file and open a new file
+"without being forced to write or undo changes first
+set hidden
+
 "Spelling
 "use zg to add word to the dictionary, z= to show the list of suggestions, and
 "zw to mark as incorrect
@@ -28,13 +33,19 @@ set wildmenu
 ":b
 "To find a word inside the files
 ":vim /word/g **/*
+"To search and replace do the following:
+"1.- vimgrep/<jose>/gj **/*
+"2.- cfdo %s/<jose>/<pato>/g | update
+"Notes:
+" - You can use copen to navigate through the quickfix list
+" - The j option is to prevent vim from jumping to the first occurence
 
 "Tabs and spaces
 set expandtab "Use spaces instead of tab characters
 set tabstop=2
 set shiftwidth=2 "One tab will use the width of 2 characters
 set softtabstop=2
-set smarttab 
+set smarttab
 
 "Cursor
 set cursorline
@@ -63,7 +74,7 @@ highlight NormalFloat ctermbg=0 ctermfg=4
 highlight SignColumn ctermbg=233 ctermfg=4
 
 "*cterm-colors*
-"NR-16   NR-8    COLOR NAME 
+"NR-16   NR-8    COLOR NAME
 "0       0       Black
 "1       4       DarkBlue
 "2       2       DarkGreen
