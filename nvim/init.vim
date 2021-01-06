@@ -4,7 +4,10 @@ set foldmethod=indent
 set noshowmode "hide default mode indicator
 set signcolumn=yes
 set scrolloff=999 "number of context lines around the cursor
-set spell spelllang=en,es
+"Spelling
+"use zg to add word to the dictionary, z= to show the list of suggestions, and
+"zw to mark as incorrect
+"set spell spelllang=en,es
 
 "Line numeration
 set number "show current line number

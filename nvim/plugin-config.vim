@@ -6,3 +6,6 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
 
 "MarkdownPreview
 let g:mkdp_refresh_slow = 1
+
+"Tmux-navigator
+let g:tmux_navigator_no_mappings = 1
