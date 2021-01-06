@@ -1,6 +1,15 @@
+"Share clipboard with the system
 set clipboard=unnamedplus
+
 set encoding=utf-8
+
+"Folding
 set foldmethod=indent
+"Notes:
+" -zR: unfold all
+" -zM: fold all
+" -za: toggle fold
+
 set noshowmode "hide default mode indicator
 set signcolumn=yes
 set scrolloff=999 "number of context lines around the cursor
@@ -18,6 +27,8 @@ set hidden
 set number "show current line number
 set relativenumber
 set numberwidth=1
+"Note: use <C-A> in visual mode to increase enumeration
+
 
 " Searching
 set incsearch " incremental searching
