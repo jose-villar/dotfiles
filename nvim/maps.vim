@@ -2,6 +2,11 @@ let mapleader=" "
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 
+nnoremap <Leader>vR :vertical resize +10<CR>
+nnoremap <Leader>vr :vertical resize -10<CR>
+nnoremap <Leader>hR :resize +10<CR>
+nnoremap <Leader>hr :resize -10<CR>
+
 "Convert tabs into spaces
 nmap <Leader>rt :set tabstop=2 shiftwidth=2 softtabstop=2 <Bar> retab<CR>
 
