@@ -12,7 +12,12 @@ set foldmethod=indent
 
 set noshowmode "hide default mode indicator
 set signcolumn=yes
-set scrolloff=999 "number of context lines around the cursor
+"set scrolloff=999 "number of context lines around the cursor
+"Notes:
+" Center current line: zz
+" View current line on top:zt
+" Move screen up keeping the cursor's position <C-e>
+" Move screen down keeping the cursor's position <C-y>
 
 "Have unwritten changes to a file and open a new file
 "without being forced to write or undo changes first
@@ -38,6 +43,7 @@ set smartcase  " ... unless they contain at least one capital letter
 "File searching
 set autochdir
 set wildmenu
+set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 "To find a file
 ":find **/<fileName>
 ":ls

@@ -33,4 +33,8 @@ Plug 'mhinz/vim-signify'
 
 "Css
 Plug 'ap/vim-css-color'
+
+"Fuzzy finder
+Plug 'wincent/Command-T'
+
 call plug#end()
