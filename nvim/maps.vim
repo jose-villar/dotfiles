@@ -1,9 +1,10 @@
 let mapleader=" "
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
-"vnoremap <C-d> "hy:%s/<C-r>h//gc<left><left><left>
-nnoremap <C-d> viw"hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
-vnoremap <C-d> "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
+
+"Search and replace
+nnoremap <C-r> viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
+vnoremap <C-r> "hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 
 nnoremap <Leader>vR :vertical resize +10<CR>
 nnoremap <Leader>vr :vertical resize -10<CR>
