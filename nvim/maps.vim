@@ -2,10 +2,7 @@ let mapleader=" "
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 
-"Search and replace
-nnoremap <C-r> viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
-vnoremap <C-r> "hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
-
+"Resize panes
 nnoremap <Leader>vR :vertical resize +10<CR>
 nnoremap <Leader>vr :vertical resize -10<CR>
 nnoremap <Leader>hR :resize +10<CR>
@@ -39,8 +36,12 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 
-
+"Spell checking
 function! FixLastSpellingError()
   normal! mm[s1z=`m
 endfunction
 nnoremap <Leader>sc :call FixLastSpellingError()<CR>
+
+"Search and replace
+nnoremap <C-r> viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
+vnoremap <C-r> "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
