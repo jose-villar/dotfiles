@@ -37,4 +37,8 @@ Plug 'ap/vim-css-color'
 "Fuzzy finder
 Plug 'wincent/Command-T'
 
+"Pandoc
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
 call plug#end()
