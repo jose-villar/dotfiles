@@ -17,6 +17,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'yggdroot/indentline' "show vertical indent guidelines
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'michaeljsmith/vim-indent-object' "<count>ii to select an indentation level
 
 "Typing
 Plug 'alvan/vim-closetag'
