@@ -21,8 +21,8 @@ map <Leader>nt :NERDTreeFind<CR>
 map <leader>mp :MarkdownPreview<CR>
 
 " external
-nmap <leader>bp :! pandoc -t beamer %:t -o %.pdf<CR>
-nmap <leader>op :! chromium %.pdf &<CR>
+nmap <leader>mtp :! pandoc -t beamer %:t -o %.pdf<CR>
+nmap <leader>oib :! chromium %.pdf &<CR>
 
 "snippets
 imap cl<Tab> console.log("");<Esc>2hi
@@ -45,3 +45,6 @@ nnoremap <Leader>sc :call FixLastSpellingError()<CR>
 "Search and replace
 nnoremap <C-r> viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 vnoremap <C-r> "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
+
+"Convert Line To Title Case
+nnoremap gt :s/\<\(\w\)\(\S*\)/\u\1\L\2/g<CR>:noh<CR>
