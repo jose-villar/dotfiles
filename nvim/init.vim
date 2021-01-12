@@ -1,6 +1,5 @@
 "Share clipboard with the system
 set clipboard=unnamedplus
-
 set encoding=utf-8
 
 "Folding

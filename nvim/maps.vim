@@ -3,14 +3,15 @@ nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 
 "Resize panes
-nnoremap <Leader>vR :vertical resize +10<CR>
-nnoremap <Leader>vr :vertical resize -10<CR>
-nnoremap <Leader>hR :resize +10<CR>
-nnoremap <Leader>hr :resize -10<CR>
+nnoremap <C-Right> :vertical resize +5<CR>
+nnoremap <C-Left> :vertical resize -5<CR>
+nnoremap <C-Up> :resize -5<CR>
+nnoremap <C-Down> :resize +5<CR>
 
 "Convert tabs into spaces
 nmap <Leader>rt :set tabstop=2 shiftwidth=2 softtabstop=2 <Bar> retab<CR>
 
+"Remove highlight from words on ENTER when searching
 nnoremap <silent> <cr> :noh<CR><CR>
 
 "Remove trailing whitespaces in a file
@@ -47,4 +48,4 @@ nnoremap <C-r> viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 vnoremap <C-r> "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
 
 "Convert Line To Title Case
-nnoremap gt :s/\<\(\w\)\(\S*\)/\u\1\L\2/g<CR>:noh<CR>
+nnoremap <Leader>gt :s/\<\(\w\)\(\S*\)/\u\1\L\2/g<CR>:noh<CR>
