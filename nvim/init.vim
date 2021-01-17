@@ -85,7 +85,7 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark ='hard'
 highlight Normal ctermbg=NONE "Prevents colorscheme overriding console bg color
 highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
- "Color of popup windows
+"Color of popup windows
 highlight NormalFloat ctermbg=0 ctermfg=4
 highlight SignColumn ctermbg=233 ctermfg=4
 

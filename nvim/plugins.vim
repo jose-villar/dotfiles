@@ -19,6 +19,7 @@ Plug 'yggdroot/indentline' "show vertical indent guidelines
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'michaeljsmith/vim-indent-object' "<count>ii to select an indentation block
 Plug 'tpope/vim-surround'
+Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 
 "Typing
 Plug 'alvan/vim-closetag'
