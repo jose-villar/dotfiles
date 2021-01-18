@@ -28,9 +28,6 @@ Plug 'jiangmiao/auto-pairs'
 "Syntax
 Plug 'sheerun/vim-polyglot' "Also helps for indenting properly
 
-"Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-
 "Git
 Plug 'mhinz/vim-signify'
 

@@ -30,6 +30,8 @@ imap cl<Tab> console.log("");<Esc>2hi
 imap sout<Tab> System.out.println("");<Esc>2hi
 imap mds<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/slides.md<CR>kdd15ja
 
+nnoremap <Leader>, A;<Esc>
+
 "tmux_navigator
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
@@ -44,8 +46,8 @@ endfunction
 nnoremap <Leader>sc :call FixLastSpellingError()<CR>
 
 "Search and replace
-nnoremap <C-r> viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
-vnoremap <C-r> "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
+nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
+vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
 
 "Convert Line To Title Case
 nnoremap <Leader>gt :s/\<\(\w\)\(\S*\)/\u\1\L\2/g<CR>:noh<CR>
