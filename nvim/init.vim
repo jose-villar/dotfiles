@@ -27,7 +27,10 @@ set hidden
 "zw to mark as incorrect
 "set spell spelllang=en,es
 
-"Line numeration
+"Sorting
+":sort
+
+""Line numeration
 set number "show current line number
 set relativenumber
 set numberwidth=1
