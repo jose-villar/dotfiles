@@ -30,8 +30,6 @@ imap cl<Tab> console.log("");<Esc>2hi
 imap sout<Tab> System.out.println("");<Esc>2hi
 imap mds<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/slides.md<CR>kdd15ja
 
-nnoremap <Leader>, A;<Esc>
-
 "tmux_navigator
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
@@ -51,3 +49,12 @@ vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
 
 "Convert Line To Title Case
 nnoremap <Leader>gt :s/\<\(\w\)\(\S*\)/\u\1\L\2/g<CR>:noh<CR>
+
+"source: http://stolarscy.com/dryobates/2014-05/sorting_paragraphs_in_vim/
+function! SortParagraphs() range
+  execute a:firstline . "," . a:lastline . 'd'
+  let @@=join(sort(split(substitute(@@, "\n*$", "", ""), "\n\n")), "\n\n")
+  put!
+endfunction
+
+vnoremap <F4> :call SortParagraphs()<CR><CR>
