@@ -2,8 +2,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 "Themes
 Plug 'morhetz/gruvbox'
+
 "Status bar
 Plug 'itchyny/lightline.vim'
+
 "Fonts
 Plug 'ryanoasis/vim-devicons'
 
@@ -14,12 +16,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 
 "IDE
-Plug 'scrooloose/nerdcommenter'
-Plug 'yggdroot/indentline' "show vertical indent guidelines
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'michaeljsmith/vim-indent-object' "<count>ii to select an indentation block
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
+Plug 'yggdroot/indentline' "show vertical indent guidelines
+
+"Sorting
+"For ex. use gsi( to sort csv inside parenthesis
+Plug 'christoomey/vim-sort-motion'
 
 "Typing
 Plug 'alvan/vim-closetag'
