@@ -14,8 +14,8 @@ nmap <Leader>rt :set tabstop=2 shiftwidth=2 softtabstop=2 <Bar> retab<CR>
 "Remove highlight from words on ENTER when searching
 nnoremap <silent> <cr> :noh<CR><CR>
 
-"Removes trailing whitespaces
-function TrimWhiteSpace()
+"Removes trailing whitespaces all over the file
+function! TrimWhiteSpaces()
   let _save_pos=getpos(".")
   let _s=@/
   %s/\s\+$//e
@@ -26,8 +26,75 @@ function TrimWhiteSpace()
   unlet _save_pos
 endfunction
 
+"Removes trailing whitespace in the current line
+function! TrimWhiteSpace()
+  let _save_pos=getpos(".")
+  let _s=@/
+  .s/\s\+$//e
+  let @/=_s
+  nohl
+  unlet _s
+  call setpos('.', _save_pos)
+  unlet _save_pos
+endfunction
+
 "Remove trailing whitespaces in a file
-nnoremap <silent><F5> :call TrimWhiteSpace()<CR>
+nnoremap <silent><F5> :call TrimWhiteSpaces()<CR>
+
+function SpreadCurlyBrackets()
+  .s/{/{ /ge
+  .s/}/ }/ge
+  .s/\s\+,/,/ge
+  .s/,/, /ge
+  .s/\s\s\+/ /ge
+  call TrimWhiteSpace()
+  normal! ==
+endfunction
+
+function SchrinkCurlyBrackets()
+  .s/{ /{/ge
+  .s/ }/}/ge
+  .s/\s\+,/,/ge
+  .s/, /,/ge
+  call TrimWhiteSpace()
+endfunction
+
+function RemoveSlashFromClosingTag()
+  .s/\/\s*>/>/ge
+endfunction
+
+function AddSlashToSelfClosingTag()
+  .s/>$/\/>/g
+endfunction
+
+function IsSelfClosedTag(line)
+  return match(a:line, ".*<.*\/>")
+endfunction
+
+function SortTagAttributes()
+  let _save_pos=getpos(".")
+  let line=getline('.')
+  let isSelfClosedTag=IsSelfClosedTag(line)
+
+  call SchrinkCurlyBrackets()
+  if isSelfClosedTag==0
+    call RemoveSlashFromClosingTag()
+    normal gsi>
+    call AddSlashToSelfClosingTag()
+  else
+    normal gsi>
+  endif
+
+  call SpreadCurlyBrackets()
+  call setpos('.', _save_pos)
+  unlet _save_pos
+  unlet isSelfClosedTag
+  unlet line
+endfunction
+
+nnoremap <Leader>J :call SpreadCurlyBrackets()<CR>
+nnoremap <Leader>j :call SchrinkCurlyBrackets()<CR>
+nnoremap <Leader><Leader> :call SortTagAttributes()<CR>
 
 " plugins
 map <Leader>nt :NERDTreeFind<CR>
