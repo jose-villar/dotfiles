@@ -14,8 +14,20 @@ nmap <Leader>rt :set tabstop=2 shiftwidth=2 softtabstop=2 <Bar> retab<CR>
 "Remove highlight from words on ENTER when searching
 nnoremap <silent> <cr> :noh<CR><CR>
 
+"Removes trailing whitespaces
+function TrimWhiteSpace()
+  let _save_pos=getpos(".")
+  let _s=@/
+  %s/\s\+$//e
+  let @/=_s
+  nohl
+  unlet _s
+  call setpos('.', _save_pos)
+  unlet _save_pos
+endfunction
+
 "Remove trailing whitespaces in a file
-nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+nnoremap <silent><F5> :call TrimWhiteSpace()<CR>
 
 " plugins
 map <Leader>nt :NERDTreeFind<CR>
