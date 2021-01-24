@@ -63,6 +63,9 @@ nnoremap <Leader>J :call ExpandCurlyBraces()<CR>
 nnoremap <Leader>j :call ShrinkCurlyBraces()<CR>
 
 function! CharAt(index, str)
+  if a:index < 0
+    return -1
+  endif
   return nr2char(strgetchar(a:str, a:index))
 endfunction
 
@@ -71,6 +74,9 @@ function! FormatTag()
   let s:line = getline('.')
   let s:res = GetCurrentTag()
   call setpos('.', s:savedPos)
+  if empty(s:res)
+    return
+  endif
   let s:tag=s:res[0]
   let s:startIndex=s:res[1]
   let s:endIndex=s:res[2]
@@ -136,25 +142,35 @@ function! FindNextClosingTag()
   let s:line = getline('.')
   let s:ch = CharAt(s:pos[2] - 1, s:line)
   let s:prevCh = CharAt(s:pos[2] - 2, s:line)
+  let s:prevPos = getpos('.')
 
   while( s:ch != '>' && getline('.') == s:line)
     normal! f>
+    if getpos('.') == s:prevPos
+      return [-1,-1,-1,-1]
+    endif
     let s:pos = getpos('.')
     let s:ch = CharAt(s:pos[2] - 1, s:line)
-    "echo "ch"
-    "echo s:ch
-    "sleep 5
     let s:prevCh = CharAt(s:pos[2] - 2, s:line)
-    "echo "prev"
-    "echo s:prevCh
-    "sleep 10
     while (s:prevCh == '=' && getline('.') == s:line )
       normal! f>
+      if getpos('.') == s:prevPos
+        return [-1,-1,-1,-1]
+      endif
       let s:pos = getpos('.')
       let s:ch = CharAt(s:pos[2] - 1, s:line)
       let s:prevCh = CharAt(s:pos[2] - 2, s:line)
+      let s:prevpos = getpos('.')
     endwhile
+    let s:prevpos = getpos('.')
   endwhile
+
+  if s:line != getline('.')
+    echo "Tag not found, aborting..."
+    sleep 10
+    return [-1,-1,-1,-1]
+  endif
+
   return getpos('.')
 endfunction
 
@@ -168,15 +184,32 @@ function! GetCurrentTag()
   if s:charAtCursor == '<'
     let s:startIndex = s:originalPosColNumber
     let s:endIndex = FindNextClosingTag()[2]
+    if s:endIndex == -1
+      echo "Tag not found, aborting..."
+      sleep 3
+      return
+    endif
   elseif s:charAtCursor == '>'
     let s:endIndex = s:originalPosColNumber
     normal! F<
     let s:startIndex = getpos('.')[2]
   else
     let s:endIndex = FindNextClosingTag()[2]
+    if s:endIndex == -1
+      echo "Tag not found, aborting..."
+      sleep 3
+      return
+    endif
     normal! F<
     let s:startIndex = getpos('.')[2]
   endif
+
+  if s:line != getline('.')
+    echo "Tag not found, aborting..."
+    sleep 3
+    return
+  endif
+
   let s:tag = s:line[s:startIndex - 1:s:endIndex - 1]
   return [s:tag, s:startIndex - 1, s:endIndex]
   unlet s:line
