@@ -12,7 +12,7 @@ nnoremap <C-Down> :resize +5<CR>
 nmap <Leader>rt :set tabstop=2 shiftwidth=2 softtabstop=2 <Bar> retab<CR>
 
 "Remove highlight from words on ENTER when searching
-nnoremap <silent> <cr> :noh<CR><CR>
+nnoremap <silent> <CR> :noh<CR><CR>
 
 "Removes trailing whitespaces all over the file
 function! TrimWhiteSpaces()
@@ -63,7 +63,7 @@ nnoremap <Leader>J :call ExpandCurlyBraces()<CR>
 nnoremap <Leader>j :call ShrinkCurlyBraces()<CR>
 
 function! CharAt(index, str)
-  if a:index < 0
+  if a:index < 0 || strchars(a:str) == 0 || a:index >= strchars(a:str)
     return -1
   endif
   return nr2char(strgetchar(a:str, a:index))
@@ -125,7 +125,6 @@ function! FormatTag()
   call setline('.', s:finalResult)
   call setpos('.', s:savedPos)
   .s/ \s\+/ /ge
-  call setpos('.', s:savedPos)
   normal!==
   call setpos('.', s:savedPos)
   unlet s:tag
@@ -169,8 +168,6 @@ function! FindNextClosingTag()
   endwhile
 
   if s:line != getline('.')
-    echo "Tag not found, aborting in 10..."
-    sleep 10
     return [-1,-1,-1,-1]
   endif
 
@@ -190,8 +187,6 @@ function! GetCurrentTag()
     let s:startIndex = s:originalPosColNumber
     let s:endIndex = FindNextClosingTag()[2]
     if s:endIndex == -1
-      echo "Tag not found, aborting in 3 seconds..."
-      sleep 3
       return
     endif
   elseif s:charAtCursor == '>'
@@ -201,8 +196,6 @@ function! GetCurrentTag()
   else
     let s:endIndex = FindNextClosingTag()[2]
     if s:endIndex == -1
-      echo "Tag not found, aborting in 4 seconds..."
-      sleep 4
       return
     endif
     normal! F<
@@ -210,8 +203,6 @@ function! GetCurrentTag()
   endif
 
   if s:line != getline('.')
-    echo "Tag not found, aborting in 5 seconds..."
-    sleep 5
     return
   endif
 
@@ -238,14 +229,12 @@ function! SortTag(tag)
   unlet s:tagAsList
   unlet s:openTag
   unlet s:closeTag
-  unlet a:tag
 endfunction
 
 nnoremap <Leader><Leader> :call FormatTag()<CR>
 
 " plugins
 map <Leader>nt :NERDTreeFind<CR>
-map <leader>mp :MarkdownPreview<CR>
 
 " external
 nmap <leader>mtp :! pandoc -t beamer %:t -o %.pdf<CR>
@@ -257,11 +246,11 @@ imap ,sout<Tab> System.out.println("");<Esc>2hi
 imap ,mds<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/slides.md<CR>kdd15ja
 
 "tmux_navigator
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+nnoremap <silent> <C-p> :TmuxNavigatePrevious<CR>
 
 "Spell checking
 function! FixLastSpellingError()
@@ -274,7 +263,11 @@ nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
 
 "Convert Line To Title Case
-nnoremap <Leader>gt :s/\<\(\w\)\(\S*\)/\u\1\L\2/g<CR>:noh<CR>
+function! FormatCurrentLineToTitleCase()
+  .s/\<\(\w\)\(\S*\)/\u\1\L\2/ge
+endfunction
+
+nnoremap <Leader>gt :call FormatCurrentLineToTitleCase()<CR>
 
 "source: http://stolarscy.com/dryobates/2014-05/sorting_paragraphs_in_vim/
 function! SortParagraphs() range
@@ -283,4 +276,4 @@ function! SortParagraphs() range
   put!
 endfunction
 
-vnoremap <F4> :call SortParagraphs()<CR><CR>
+vnoremap <Leader><F4> :call SortParagraphs()<CR><CR>
