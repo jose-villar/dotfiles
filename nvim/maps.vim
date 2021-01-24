@@ -78,6 +78,9 @@ function! FormatTag()
     return
   endif
   let s:tag=s:res[0]
+  if strchars(s:tag) < 3
+    return
+  endif
   let s:startIndex=s:res[1]
   let s:endIndex=s:res[2]
   let s:originalTag = s:res[0]
@@ -104,7 +107,6 @@ function! FormatTag()
   let s:tag = substitute(s:tag, "/  >", "/>", "ge")
   let s:tag = substitute(s:tag, "/>", " />", "ge")
 
-
   let s:tag = SortTag(s:tag)
 
   "Expand curly braces
@@ -112,8 +114,9 @@ function! FormatTag()
   let s:tag = substitute(s:tag, "}", " }", "ge")
   let s:tag = substitute(s:tag, "\s\+,", ",", "ge")
   let s:tag = substitute(s:tag, ",", ", ", "ge")
-  let s:tag = substitute(s:tag, "\s\s\+", " ", "ge")
   let s:tag = substitute(s:tag, "=>", " => ", "ge")
+  let s:tag = substitute(s:tag, "{ {", "{{", "ge")
+  let s:tag = substitute(s:tag, "} }", "}}", "ge")
   let s:tag = trim(s:tag)
 
   let s:finalResult = s:firstPart.s:tag.s:secondPart
@@ -166,7 +169,7 @@ function! FindNextClosingTag()
   endwhile
 
   if s:line != getline('.')
-    echo "Tag not found, aborting..."
+    echo "Tag not found, aborting in 10..."
     sleep 10
     return [-1,-1,-1,-1]
   endif
@@ -174,6 +177,8 @@ function! FindNextClosingTag()
   return getpos('.')
 endfunction
 
+" Returns the tag found where the cursor is located, and its position in the
+" current line
 function! GetCurrentTag()
   let s:line = getline('.')
   let s:originalPos = getpos('.')
@@ -185,7 +190,7 @@ function! GetCurrentTag()
     let s:startIndex = s:originalPosColNumber
     let s:endIndex = FindNextClosingTag()[2]
     if s:endIndex == -1
-      echo "Tag not found, aborting..."
+      echo "Tag not found, aborting in 3 seconds..."
       sleep 3
       return
     endif
@@ -196,8 +201,8 @@ function! GetCurrentTag()
   else
     let s:endIndex = FindNextClosingTag()[2]
     if s:endIndex == -1
-      echo "Tag not found, aborting..."
-      sleep 3
+      echo "Tag not found, aborting in 4 seconds..."
+      sleep 4
       return
     endif
     normal! F<
@@ -205,12 +210,12 @@ function! GetCurrentTag()
   endif
 
   if s:line != getline('.')
-    echo "Tag not found, aborting..."
-    sleep 3
+    echo "Tag not found, aborting in 5 seconds..."
+    sleep 5
     return
   endif
 
-  let s:tag = s:line[s:startIndex - 1:s:endIndex - 1]
+  let s:tag = s:line[s:startIndex - 1 : s:endIndex - 1]
   return [s:tag, s:startIndex - 1, s:endIndex]
   unlet s:line
   unlet s:originalPos
@@ -233,6 +238,7 @@ function! SortTag(tag)
   unlet s:tagAsList
   unlet s:openTag
   unlet s:closeTag
+  unlet a:tag
 endfunction
 
 nnoremap <Leader><Leader> :call FormatTag()<CR>
