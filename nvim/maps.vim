@@ -59,52 +59,18 @@ function ShrinkCurlyBraces()
   call TrimWhiteSpace()
 endfunction
 
-function RemoveSlashFromClosingTag()
-  .s/\/\s*>/>/ge
-endfunction
-
-function AddSlashToSelfClosingTag()
-  .s/>$/\/>/g
-endfunction
-
-function IsSelfClosedTag(line)
-  return match(a:line, ".*<.*\/>")
-endfunction
-
-function SortTagAttributes()
-  let _save_pos=getpos(".")
-  let line=getline('.')
-  let isSelfClosedTag=IsSelfClosedTag(line)
-
-  call ShrinkCurlyBraces()
-  if isSelfClosedTag==0
-    call RemoveSlashFromClosingTag()
-    normal gsi>
-    call AddSlashToSelfClosingTag()
-  else
-    normal gsi>
-  endif
-
-  call ExpandCurlyBraces()
-  call setpos('.', _save_pos)
-  unlet _save_pos
-  unlet isSelfClosedTag
-  unlet line
-endfunction
-
 nnoremap <Leader>J :call ExpandCurlyBraces()<CR>
 nnoremap <Leader>j :call ShrinkCurlyBraces()<CR>
-nnoremap <Leader><Leader> :call FormatTag()<CR>
 
 function! CharAt(index, str)
   return nr2char(strgetchar(a:str, a:index))
 endfunction
 
 function! FormatTag()
-  let s:sp = getpos(".")
+  let s:savedPos = getpos(".")
   let s:line = getline('.')
-  let s:savedPos=getpos(".")
-  let s:res=GetCurrentTag()
+  let s:res = GetCurrentTag()
+  call setpos('.', s:savedPos)
   let s:tag=s:res[0]
   let s:startIndex=s:res[1]
   let s:endIndex=s:res[2]
@@ -113,12 +79,11 @@ function! FormatTag()
   let s:firstPart = strcharpart(s:line, 0, s:startIndex)
   let s:secondPart = strcharpart(s:line, s:endIndex, len(s:line) - 1)
 
+  .s/ \s\+/ /ge
+  call setpos('.', s:savedPos)
   let s:tag = substitute(s:tag, ">", " >", "ge")
   let s:tag = substitute(s:tag, "/ >", "/>", "ge")
   let s:tag = substitute(s:tag, "/>", " />", "ge")
-
-  "echo s:tag
-  "sleep 5
 
   "Shrink Curly Braces
   let s:tag = substitute(s:tag, "{ ", "{", "ge")
@@ -129,16 +94,13 @@ function! FormatTag()
   let s:tag = substitute(s:tag, "=> ", "=>", "ge")
   let s:tag = substitute(s:tag, " =>", "=>", "ge")
 
-  "echo s:tag
-  "sleep 10
-  "let s:tag = trim(s:tag)
+  let s:tag = substitute(s:tag, "/ >", "/>", "ge")
+  let s:tag = substitute(s:tag, "/  >", "/>", "ge")
+  let s:tag = substitute(s:tag, "/>", " />", "ge")
 
-  "echo s:tag
 
-  "sleep 10
   let s:tag = SortTag(s:tag)
 
-  "sleep 10
   "Expand curly braces
   let s:tag = substitute(s:tag, "{", "{ ", "ge")
   let s:tag = substitute(s:tag, "}", " }", "ge")
@@ -148,24 +110,18 @@ function! FormatTag()
   let s:tag = substitute(s:tag, "=>", " => ", "ge")
   let s:tag = trim(s:tag)
 
-  "echo s:tag
   let s:finalResult = s:firstPart.s:tag.s:secondPart
-  "echo s:finalResult
-  "sleep 10
-  "let s:finalResult = substitute(s:line, s:originalTag, s:tag, "ge")
   let s:finalResult = substitute(s:finalResult, "><", "> <", "ge")
-  let s:finalResult = substitute(s:finalResult, "\s\s\+", " ", "ge")
-  let s:finalResult = substitute(s:finalResult, "  ", " ", "ge")
-  let s:finalResult = substitute(s:finalResult, "   ", " ", "ge")
-  "echo s:finalResult
 
   call setline('.', s:finalResult)
+  call setpos('.', s:savedPos)
+  .s/ \s\+/ /ge
+  call setpos('.', s:savedPos)
   normal!==
-  call setpos('.', s:sp)
+  call setpos('.', s:savedPos)
   unlet s:tag
   unlet s:finalResult
   unlet s:savedPos
-  unlet s:sp
   unlet s:res
   unlet s:firstPart
   unlet s:secondPart
@@ -207,49 +163,46 @@ function! GetCurrentTag()
   let s:originalPos = getpos('.')
   let s:originalPosLineNumber = s:originalPos[1]
   let s:originalPosColNumber = s:originalPos[2]
-
   let s:charAtCursor = CharAt(s:originalPosColNumber - 1, s:line)
 
   if s:charAtCursor == '<'
-    "sleep 5
     let s:startIndex = s:originalPosColNumber
     let s:endIndex = FindNextClosingTag()[2]
   elseif s:charAtCursor == '>'
-    "sleep 5
     let s:endIndex = s:originalPosColNumber
     normal! F<
     let s:startIndex = getpos('.')[2]
   else
     let s:endIndex = FindNextClosingTag()[2]
-    let s:endIndex = getpos('.')[2]
     normal! F<
     let s:startIndex = getpos('.')[2]
   endif
   let s:tag = s:line[s:startIndex - 1:s:endIndex - 1]
-  "echo s:tag
-  "sleep 10
   return [s:tag, s:startIndex - 1, s:endIndex]
+  unlet s:line
+  unlet s:originalPos
+  unlet s:originalPosLineNumber
+  unlet s:originalPosColNumber
+  unlet s:charAtCursor
+  unlet s:startIndex
+  unlet s:endIndex
+  unlet s:tag
 endfunction
 
 function! SortTag(tag)
-  "echo a:tag
-  "sleep 5
   let s:tagAsList = split(a:tag, ' ')
   let s:openTag = remove(s:tagAsList, 0)
-  "sleep 10
   let s:closeTag = remove(s:tagAsList, len(s:tagAsList) - 1)
-  "sleep 10
   call sort(s:tagAsList)
   call add(s:tagAsList, s:closeTag)
   call insert(s:tagAsList, s:openTag, 0)
   return join(s:tagAsList)
+  unlet s:tagAsList
+  unlet s:openTag
+  unlet s:closeTag
 endfunction
 
-function! SortTagAtts()
-  let s:currentTag = GetCurrentTag()
-  let s:currentTag = SortTag(s:currentTag)
-  echo s:currentTag
-endfunction
+nnoremap <Leader><Leader> :call FormatTag()<CR>
 
 " plugins
 map <Leader>nt :NERDTreeFind<CR>
