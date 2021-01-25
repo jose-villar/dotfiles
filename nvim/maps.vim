@@ -8,40 +8,48 @@ nnoremap <C-Left> :vertical resize -5<CR>
 nnoremap <C-Up> :resize -5<CR>
 nnoremap <C-Down> :resize +5<CR>
 
-"Convert tabs into spaces
-nmap <Leader>rt :set tabstop=2 shiftwidth=2 softtabstop=2 <Bar> retab<CR>
+function! ConvertTabsIntoSpaces()
+  let s:savedPos = getpos('.')
+  set tabstop=2 shiftwidth=2 softtabstop=2
+  retab
+  normal!gg=G
+  call setpos('.', s:savedPos)
+  unlet s:savedPos
+endfunction
+
+nnoremap <Leader>rt :call ConvertTabsIntoSpaces()<CR>
 
 "Remove highlight from words on ENTER when searching
-nnoremap <silent> <CR> :noh<CR><CR>
+nnoremap <silent><CR> :noh<CR><CR>
 
 "Removes trailing whitespaces all over the file
 function! TrimWhiteSpaces()
-  let _save_pos=getpos(".")
-  let _s=@/
+  let s:savedPos = getpos(".")
+  let s:s=@/
   %s/\s\+$//e
-  let @/=_s
+  let @/=s:s
   nohl
-  unlet _s
-  call setpos('.', _save_pos)
-  unlet _save_pos
+  unlet s:s
+  call setpos('.', s:savedPos)
+  unlet s:savedPos
 endfunction
 
 "Removes trailing whitespace in the current line
 function! TrimWhiteSpace()
-  let _save_pos=getpos(".")
-  let _s=@/
+  let s:savedPos = getpos(".")
+  let s:s = @/
   .s/\s\+$//e
-  let @/=_s
+  let @/ = s:s
   nohl
-  unlet _s
-  call setpos('.', _save_pos)
-  unlet _save_pos
+  unlet s:s
+  call setpos('.', s:savedPos)
+  unlet s:savedPos
 endfunction
 
 "Remove trailing whitespaces in a file
-nnoremap <silent><F5> :call TrimWhiteSpaces()<CR>
+nnoremap <Leader><F5> :call TrimWhiteSpaces()<CR>
 
-function ExpandCurlyBraces()
+function! ExpandCurlyBraces()
   .s/{/{ /ge
   .s/}/ }/ge
   .s/\s\+,/,/ge
@@ -51,7 +59,7 @@ function ExpandCurlyBraces()
   normal! ==
 endfunction
 
-function ShrinkCurlyBraces()
+function! ShrinkCurlyBraces()
   .s/{ /{/ge
   .s/ }/}/ge
   .s/\s\+,/,/ge
@@ -62,14 +70,14 @@ endfunction
 nnoremap <Leader>J :call ExpandCurlyBraces()<CR>
 nnoremap <Leader>j :call ShrinkCurlyBraces()<CR>
 
-function! CharAt(index, str)
+function! CharAt(index, str) abort
   if a:index < 0 || strchars(a:str) == 0 || a:index >= strchars(a:str)
     return -1
   endif
   return nr2char(strgetchar(a:str, a:index))
 endfunction
 
-function! FormatTag()
+function! FormatTag() abort
   let s:savedPos = getpos(".")
   let s:line = getline('.')
   let s:res = GetCurrentTag()
@@ -139,7 +147,7 @@ function! FormatTag()
   unlet s:originalTag
 endfunction
 
-function! FindNextClosingTag()
+function! FindNextClosingTag() abort
   let s:pos = getpos('.')
   let s:line = getline('.')
   let s:ch = CharAt(s:pos[2] - 1, s:line)
@@ -176,7 +184,7 @@ endfunction
 
 " Returns the tag found where the cursor is located, and its position in the
 " current line
-function! GetCurrentTag()
+function! GetCurrentTag() abort
   let s:line = getline('.')
   let s:originalPos = getpos('.')
   let s:originalPosLineNumber = s:originalPos[1]
@@ -218,7 +226,7 @@ function! GetCurrentTag()
   unlet s:tag
 endfunction
 
-function! SortTag(tag)
+function! SortTag(tag) abort
   let s:tagAsList = split(a:tag, ' ')
   let s:openTag = remove(s:tagAsList, 0)
   let s:closeTag = remove(s:tagAsList, len(s:tagAsList) - 1)
@@ -252,17 +260,16 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 nnoremap <silent> <C-p> :TmuxNavigatePrevious<CR>
 
-"Spell checking
-function! FixLastSpellingError()
+function! FixLastSpellingError() abort
   normal! mm[s1z=`m
 endfunction
+
 nnoremap <Leader>sc :call FixLastSpellingError()<CR>
 
 "Search and replace
 nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
 
-"Convert Line To Title Case
 function! FormatCurrentLineToTitleCase()
   .s/\<\(\w\)\(\S*\)/\u\1\L\2/ge
 endfunction
@@ -270,7 +277,7 @@ endfunction
 nnoremap <Leader>gt :call FormatCurrentLineToTitleCase()<CR>
 
 "source: http://stolarscy.com/dryobates/2014-05/sorting_paragraphs_in_vim/
-function! SortParagraphs() range
+function! SortParagraphs() range abort
   execute a:firstline . "," . a:lastline . 'd'
   let @@=join(sort(split(substitute(@@, "\n*$", "", ""), "\n\n")), "\n\n")
   put!
