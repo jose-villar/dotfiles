@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
+Plug '~/Workspace/code/vimscript/vim-tagattsort'
+
 "Themes
 Plug 'morhetz/gruvbox'
 
