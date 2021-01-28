@@ -2,7 +2,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'jose-villar/vim-tagattsort'
 "Plug '~/Workspace/code/vimscript/vim-tagattsort'
+
+"Startup time
 Plug 'dstein64/vim-startuptime'
+
 "Themes
 Plug 'morhetz/gruvbox'
 
@@ -39,6 +42,7 @@ Plug 'sheerun/vim-polyglot' "Also helps for indenting properly
 
 "Git
 Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
 
 "Css
 Plug 'ap/vim-css-color'
