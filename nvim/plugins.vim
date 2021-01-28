@@ -1,6 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug '~/Workspace/code/vimscript/vim-tagattsort'
+Plug 'jose-villar/vim-tagattsort'
+"Plug '~/Workspace/code/vimscript/vim-tagattsort'
+
 
 "Themes
 Plug 'morhetz/gruvbox'

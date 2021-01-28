@@ -1,5 +1,6 @@
-"Share clipboard with the system
-set clipboard=unnamedplus
+"register '*' for all yank, delete, change and put operations
+"register '+' for the system
+set clipboard=unnamed
 set encoding=utf-8
 
 "Folding
@@ -35,7 +36,6 @@ set number "show current line number
 set relativenumber
 set numberwidth=1
 "Note: use <C-A> in visual mode to increase enumeration
-
 
 " Searching
 set incsearch " incremental searching
@@ -84,13 +84,18 @@ so ~/.config/nvim/plugins.vim
 so ~/.config/nvim/plugin-config.vim
 so ~/.config/nvim/maps.vim
 
+"THEME
 colorscheme gruvbox
-let g:gruvbox_contrast_dark ='hard'
-highlight Normal ctermbg=NONE "Prevents colorscheme overriding console bg color
+"Prevents colorscheme overriding console bg color
+highlight Normal ctermbg=NONE
+"Color of the cursor line
 highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
 "Color of popup windows
 highlight NormalFloat ctermbg=0 ctermfg=4
+"Color of the column to the left of line numbers
 highlight SignColumn ctermbg=233 ctermfg=4
+"Highlight search color
+highlight Search cterm=NONE ctermfg=3* ctermbg=0
 
 "*cterm-colors*
 "NR-16   NR-8    COLOR NAME
