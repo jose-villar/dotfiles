@@ -95,7 +95,7 @@ highlight NormalFloat ctermbg=0 ctermfg=4
 "Color of the column to the left of line numbers
 highlight SignColumn ctermbg=233 ctermfg=4
 "Highlight search color
-highlight Search cterm=NONE ctermfg=3* ctermbg=0
+highlight Search cterm=NONE ctermfg=0 ctermbg=4*
 
 "*cterm-colors*
 "NR-16   NR-8    COLOR NAME

@@ -2,8 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'jose-villar/vim-tagattsort'
 "Plug '~/Workspace/code/vimscript/vim-tagattsort'
-
-
+Plug 'dstein64/vim-startuptime'
 "Themes
 Plug 'morhetz/gruvbox'
 
