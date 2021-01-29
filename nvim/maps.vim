@@ -48,7 +48,7 @@ function! TrimWhiteSpace()
 endfunction
 
 "Remove trailing whitespaces in a file
-nnoremap <Leader><F5> :call TrimWhiteSpaces()<CR>
+nnoremap <silent><Leader><F5> :call TrimWhiteSpaces()<CR>
 
 function! ExpandCurlyBraces()
   .s/{/{ /ge

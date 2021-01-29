@@ -12,3 +12,6 @@ let g:tmux_navigator_no_mappings = 1
 
 "Gruvbox
 let g:gruvbox_contrast_dark ='hard'
+
+"Sneak
+let g:sneak#label = 1
