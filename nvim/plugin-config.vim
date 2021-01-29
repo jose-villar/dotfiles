@@ -15,3 +15,6 @@ let g:gruvbox_contrast_dark ='hard'
 
 "Sneak
 let g:sneak#label = 1
+
+"Undotree
+let g:undotree_WindowLayout = 2

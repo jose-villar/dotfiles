@@ -12,6 +12,7 @@ set foldmethod=indent
 
 set noshowmode "hide default mode indicator
 set signcolumn=yes
+set scrolloff=1
 "set scrolloff=999 "number of context lines around the cursor
 "Notes:
 " Center current line: zz
@@ -76,6 +77,18 @@ set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
 "Indentation
 set cindent
 set autoindent
+
+"Undo history
+set nobackup
+set noswapfile
+set nowritebackup
+set undolevels=1000
+set history=1000
+
+if has('persistent_undo')
+  set undodir=$HOME/.config/nvim/undoHistory
+  set undofile
+endif
 
 syntax enable
 filetype indent plugin on

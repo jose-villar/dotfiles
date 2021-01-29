@@ -73,6 +73,7 @@ nnoremap <Leader>j :call ShrinkCurlyBraces()<CR>
 
 " plugins
 map <Leader>nt :NERDTreeFind<CR>
+nnoremap <Leader>h :UndotreeToggle<CR>
 
 " external
 nmap <leader>mtp :! pandoc -t beamer %:t -o %.pdf<CR>

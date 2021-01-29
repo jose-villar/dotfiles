@@ -35,6 +35,9 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 Plug 'yggdroot/indentline' "show vertical indent guidelines
 Plug 'tpope/vim-commentary' "gcc to comment out a line of code
 
+"Undo history
+Plug 'mbbill/undotree'
+
 "Typing
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
