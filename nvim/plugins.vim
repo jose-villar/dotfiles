@@ -24,10 +24,11 @@ Plug 'christoomey/vim-tmux-navigator'
 "IDE
 Plug 'michaeljsmith/vim-indent-object' "<count>ii to select an indentation block
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 Plug 'yggdroot/indentline' "show vertical indent guidelines
+Plug 'tpope/vim-commentary' "gcc to comment out a line of code
+
 
 "Sorting
 "For ex. use gsi( to sort csv inside parenthesis

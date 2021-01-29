@@ -78,7 +78,7 @@ set cindent
 set autoindent
 
 syntax enable
-filetype plugin on
+filetype indent plugin on
 
 so ~/.config/nvim/plugins.vim
 so ~/.config/nvim/plugin-config.vim
