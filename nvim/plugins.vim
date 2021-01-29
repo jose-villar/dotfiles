@@ -1,5 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
+"Sorting
+"For ex. use gsi( to sort csv inside parenthesis
+Plug 'christoomey/vim-sort-motion'
 Plug 'jose-villar/vim-tagattsort'
 "Plug '~/Workspace/code/vimscript/vim-tagattsort'
 
@@ -21,6 +24,9 @@ Plug 'scrooloose/nerdtree'
 "Tmux
 Plug 'christoomey/vim-tmux-navigator'
 
+"Navigation
+Plug 'justinmk/vim-sneak' "s<2 characters>
+
 "IDE
 Plug 'michaeljsmith/vim-indent-object' "<count>ii to select an indentation block
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,11 +34,6 @@ Plug 'tpope/vim-surround'
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 Plug 'yggdroot/indentline' "show vertical indent guidelines
 Plug 'tpope/vim-commentary' "gcc to comment out a line of code
-
-
-"Sorting
-"For ex. use gsi( to sort csv inside parenthesis
-Plug 'christoomey/vim-sort-motion'
 
 "Typing
 Plug 'alvan/vim-closetag'
