@@ -12,6 +12,10 @@ Plug 'dstein64/vim-startuptime'
 "Themes
 Plug 'morhetz/gruvbox'
 
+"Goyo
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 "Status bar
 Plug 'itchyny/lightline.vim'
 
