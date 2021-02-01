@@ -4,10 +4,10 @@ nmap <Leader>q :q<CR>
 nmap <Leader>somv :so $MYVIMRC<CR>
 
 "Resize panes
-nnoremap <C-Right> :vertical resize +5<CR>
-nnoremap <C-Left> :vertical resize -5<CR>
-nnoremap <C-Up> :resize -5<CR>
-nnoremap <C-Down> :resize +5<CR>
+nnoremap <C-Right> :vertical resize +10<CR>
+nnoremap <C-Left> :vertical resize -10<CR>
+nnoremap <C-Up> :resize +5<CR>
+nnoremap <C-Down> :resize -5<CR>
 
 function! ConvertTabsIntoSpaces()
   let s:savedPos = getpos('.')
