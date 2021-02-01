@@ -99,32 +99,26 @@ so ~/.config/nvim/maps.vim
 
 "THEME
 colorscheme gruvbox
-"Prevents colorscheme overriding console bg color
-highlight Normal ctermbg=NONE
 "Color of the cursor line
 highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
-"Color of popup windows
-highlight NormalFloat ctermbg=0 ctermfg=4
-"Color of the column to the left of line numbers
-highlight SignColumn ctermbg=233 ctermfg=4
 "Highlight search color
-highlight Search cterm=NONE ctermfg=0 ctermbg=4*
+highlight Search cterm=NONE ctermfg=0 ctermbg=3
 
 "*cterm-colors*
-"NR-16   NR-8    COLOR NAME
-"0       0       Black
-"1       4       DarkBlue
-"2       2       DarkGreen
-"3       6       DarkCyan
-"4       1       DarkRed
-"5       5       DarkMagenta
-"6       3       Brown, DarkYellow
-"7       7       LightGray, LightGrey, Gray, Grey
-"8       0*      DarkGray, DarkGrey
-"9       4*      Blue, LightBlue
-"10      2*      Green, LightGreen
-"11      6*      Cyan, LightCyan
-"12      1*      Red, LightRed
-"13      5*      Magenta, LightMagenta
-"14      3*      Yellow, LightYellow
-"15      7*      White
+"NR-8    COLOR NAME
+"0       Black
+"0*      DarkGray, DarkGrey
+"1       DarkRed
+"1*      Red, LightRed
+"2       DarkGreen
+"2*      Green, LightGreen
+"3       Brown, DarkYellow
+"3*      Yellow, LightYellow
+"4       DarkBlue
+"4*      Blue, LightBlue
+"5       DarkMagenta
+"5*      Magenta, LightMagenta
+"6       DarkCyan
+"6*      Cyan, LightCyan
+"7       LightGray, LightGrey, Gray, Grey
+"7*      White
