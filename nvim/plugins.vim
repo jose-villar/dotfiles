@@ -3,8 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 "Sorting
 "For ex. use gsi( to sort csv inside parenthesis
 Plug 'christoomey/vim-sort-motion'
-Plug 'jose-villar/vim-tagattsort'
-"Plug '~/Workspace/code/vimscript/vim-tagattsort'
+" Plug 'jose-villar/vim-tagattsort'
+Plug '~/Workspace/code/vimscript/vim-tagasort'
 
 "Startup time
 Plug 'dstein64/vim-startuptime'
