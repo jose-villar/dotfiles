@@ -2,6 +2,7 @@
 "register '+' for the system
 set clipboard=unnamed
 set encoding=utf-8
+set cc=80
 
 "Folding
 set foldmethod=indent
@@ -46,7 +47,10 @@ set smartcase  " ... unless they contain at least one capital letter
 "File searching
 set autochdir
 set wildmenu
-set wildignore+=*/node_modules/**,*/build/**,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
+set wildignore+=*/node_modules/**,*/build/**,_site,*/__pycache__/,*/venv/*,
+      \*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,
+      \*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
+
 "To find a file
 ":find **/<fileName>
 ":ls
@@ -99,13 +103,13 @@ so ~/.config/nvim/maps.vim
 
 "THEME
 colorscheme gruvbox
-"Color of the cursor line
-highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
-"Highlight search color
-highlight Search cterm=NONE ctermfg=0 ctermbg=3
 
-"*cterm-colors*
-"NR-8    COLOR NAME
+highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
+highlight Search cterm=NONE ctermfg=0 ctermbg=3
+highlight ColorColumn cterm=NONE ctermbg=234 ctermfg=NONE
+
+
+"*cterm-colors* NR-8    COLOR NAME
 "0       Black
 "0*      DarkGray, DarkGrey
 "1       DarkRed
