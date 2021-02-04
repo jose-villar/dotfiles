@@ -1,65 +1,67 @@
 call plug#begin('~/.config/nvim/plugged')
 
-"Sorting
-"For ex. use gsi( to sort csv inside parenthesis
+" Sorting
+" For ex. use gsi( to sort csv inside parenthesis
 Plug 'christoomey/vim-sort-motion'
 Plug 'jose-villar/vim-tagasort'
 " Plug '~/Workspace/code/vimscript/vim-tagasort'
 
-"Startup time
+" Startup time
 Plug 'dstein64/vim-startuptime'
 
-"Themes
+" Themes
 Plug 'morhetz/gruvbox'
 
-"Goyo
+" Goyo
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
-"Status bar
-Plug 'itchyny/lightline.vim'
-
-"Fonts
+" Fonts
 Plug 'ryanoasis/vim-devicons'
 
-"Tree
+" Tree
 Plug 'scrooloose/nerdtree'
 
-"Tmux
+" Tmux
 Plug 'christoomey/vim-tmux-navigator'
 
-"Navigation
+" Navigation
 Plug 'justinmk/vim-sneak' "s<2 characters>
 
-"IDE
+" IDE
 Plug 'michaeljsmith/vim-indent-object' "<count>ii to select an indentation block
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 Plug 'yggdroot/indentline' "show vertical indent guidelines
 Plug 'tpope/vim-commentary' "gcc to comment out a line of code
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+" Status bar
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 
-"Undo history
+" Undo history
 Plug 'mbbill/undotree'
 
-"Typing
+" Typing
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 
-"Syntax
-Plug 'sheerun/vim-polyglot' "Also helps for indenting properly
+" Syntax
+" A collection of languaje packs
+ Plug 'sheerun/vim-polyglot' "Also helps for indenting properly
 
-"Git
+" Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
-"Css
+" Css
 Plug 'ap/vim-css-color'
 
-"Fuzzy finder
+" Fuzzy finder
 Plug 'wincent/Command-T'
 
-"Pandoc
+" Pandoc
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 

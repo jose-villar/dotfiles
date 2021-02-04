@@ -97,6 +97,9 @@ endif
 syntax enable
 filetype indent plugin on
 
+"Before plugins are added
+let g:ale_disable_lsp = 1
+
 so ~/.config/nvim/plugins.vim
 so ~/.config/nvim/plugin-config.vim
 so ~/.config/nvim/maps.vim
