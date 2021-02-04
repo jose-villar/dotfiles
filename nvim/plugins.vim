@@ -18,8 +18,6 @@ Plug 'junegunn/limelight.vim'
 
 "Status bar
 Plug 'itchyny/lightline.vim'
-"Add gruvbox theme to the lightline plugin
-Plug 'shinchu/lightline-gruvbox.vim'
 
 "Fonts
 Plug 'ryanoasis/vim-devicons'

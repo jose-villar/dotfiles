@@ -1,5 +1,5 @@
 "NerdTree
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen = 1
 
 "vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
@@ -12,9 +12,6 @@ let g:tmux_navigator_no_mappings = 1
 
 "Gruvbox
 let g:gruvbox_contrast_dark ='hard'
-"Gruvbox theme for the status bar
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
 
 "Sneak
 let g:sneak#label = 1
@@ -47,3 +44,19 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+"Lightline
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+
+
+
