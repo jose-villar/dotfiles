@@ -49,8 +49,11 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:signify_sign_delete = '-'
 let g:signify_sign_change = '~'
 
+" \ 'colorscheme': 'OldHope',
+" \ 'colorscheme': 'powerlineish',
 " Lightline
 let g:lightline = {
+\ 'colorscheme': 'powerline',
 \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
 \}
@@ -87,9 +90,19 @@ let g:lightline.active = {
 \}
 
 let g:lightline.inactive = {
-      \ 'left': [ [ 'filename' ] ],
-      \ 'right': [ [ 'lineinfo' ],
-      \            [ 'percent' ] ] }
+\ 'right': [
+\    [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+\    [ 'percent', 'lineinfo' ],
+\    [ 'fileformat', 'fileencoding', 'filetype' ],
+\ ],
+\ 'left': [ [ 'mode', 'paste' ],
+\           [ 'gitbranch', 'gitstats', 'readonly', 'filename', 'modified' ]
+\ ]
+\}
+" let g:lightline.inactive = {
+"       \ 'left': [ [ 'filename' ] ],
+"       \ 'right': [ [ 'lineinfo' ],
+      " \            [ 'percent' ] ] }
 
 " Icons
 let g:lightline#ale#indicator_checking = "\uf110 "
