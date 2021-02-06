@@ -69,5 +69,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'tpope/vim-eunuch' " sugar for UNIX shell commands
 Plug 'tpope/vim-unimpaired' " [l and ]l to navigate through warnings
 Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat' "repeat mappings with . operator
 
 call plug#end()
