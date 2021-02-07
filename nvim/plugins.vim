@@ -66,10 +66,10 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 "Misc
-Plug 'tpope/vim-eunuch' " sugar for UNIX shell commands
-Plug 'tpope/vim-unimpaired' " [l and ]l to navigate through warnings
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-repeat' "repeat mappings with . operator
-Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-eunuch' " sugar for UNIX shell commands
+" Plug 'tpope/vim-unimpaired' " [l and ]l to navigate through warnings
+" Plug 'tpope/vim-speeddating'
+" Plug 'tpope/vim-repeat' "repeat mappings with . operator
+" Plug 'tpope/vim-endwise'
 
 call plug#end()

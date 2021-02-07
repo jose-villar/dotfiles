@@ -82,7 +82,7 @@ set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
 set cindent
 set autoindent
 
-"Undo history
+""Undo history
 set nobackup
 set noswapfile
 set nowritebackup
