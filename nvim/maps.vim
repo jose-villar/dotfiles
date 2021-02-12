@@ -3,6 +3,13 @@ nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>somv :so $MYVIMRC<CR>
 
+"Git
+"Press dv on the file that has merge conflicts, in the status menu
+"Target branch (active branch):2
+nmap <Leader>dg2 :diffget //2<BAR>:diffupdate<CR>
+"Merge branch (named in the git merge command):3
+nmap <Leader>dg3 :diffget //3<BAR>:diffupdate<CR>
+
 "Resize panes
 nnoremap <C-Right> :vertical resize +10<CR>
 nnoremap <C-Left> :vertical resize -10<CR>
@@ -119,11 +126,25 @@ endfunction
 vnoremap <Leader><F4> :call SortParagraphs()<CR><CR>
 
 " A function to clear the undo history
-function! <SID>ForgetUndo()
-    let old_undolevels = &undolevels
-    set undolevels=-1
-    exe "normal a \<BS>\<Esc>"
-    let &undolevels = old_undolevels
-    unlet old_undolevels
+function! ForgetUndo()
+  let old_undolevels = &undolevels
+  set undolevels=-1
+  exe "normal a \<BS>\<Esc>"
+  let &undolevels = old_undolevels
 endfunction
-command -nargs=0 ClearUndo call <SID>ForgetUndo()
+
+" fun! Test()
+" let auxString = "||TAGASORT||"
+"   .sm/"[^"]*"/\=substitute(submatch(0), ' ', auxString, 'g')/ge
+" endfun
+
+fun! Test()
+  let auxString = "||TAGASORT||"
+  .sm/\'[^\']*\'/\=substitute(submatch(0), ' ', auxString, 'g')/ge
+endfun
+
+nnoremap <Leader>7 :call Test()<CR>
+
+
+
+
