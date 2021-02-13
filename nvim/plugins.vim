@@ -71,5 +71,8 @@ Plug 'tpope/vim-unimpaired' " [l and ]l to navigate through warnings
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat' "repeat mappings with . operator
 Plug 'tpope/vim-endwise'
+"By default titlecase maps itself to gt, note that this interferes with the
+"default mapping for switching tabs
+Plug 'christoomey/vim-titlecase'
 
 call plug#end()
