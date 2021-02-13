@@ -110,12 +110,6 @@ nnoremap <Leader>sc :call FixLastSpellingError()<CR>
 nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
 
-function! FormatCurrentLineToTitleCase()
-  .s/\<\(\w\)\(\S*\)/\u\1\L\2/ge
-endfunction
-
-nnoremap <Leader>gt :call FormatCurrentLineToTitleCase()<CR>
-
 "source: http://stolarscy.com/dryobates/2014-05/sorting_paragraphs_in_vim/
 function! SortParagraphs() range abort
   execute a:firstline . "," . a:lastline . 'd'
@@ -132,19 +126,3 @@ function! ForgetUndo()
   exe "normal a \<BS>\<Esc>"
   let &undolevels = old_undolevels
 endfunction
-
-" fun! Test()
-" let auxString = "||TAGASORT||"
-"   .sm/"[^"]*"/\=substitute(submatch(0), ' ', auxString, 'g')/ge
-" endfun
-
-fun! Test()
-  let auxString = "||TAGASORT||"
-  .sm/\'[^\']*\'/\=substitute(submatch(0), ' ', auxString, 'g')/ge
-endfun
-
-nnoremap <Leader>7 :call Test()<CR>
-
-
-
-
