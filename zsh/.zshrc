@@ -32,6 +32,7 @@ export PATH="$PATH:/home/jose/.gem/ruby/2.7.0/bin"
 alias ls="ls --color=auto"
 alias q="exit"
 alias t="tmux"
+alias v="nvim"
 alias whatsmyip="wget http://ipecho.net/plain -O - -q ; echo"
 
 # Enable searching through history
