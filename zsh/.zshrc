@@ -35,6 +35,22 @@ alias t="tmux"
 alias v="nvim"
 alias whatsmyip="wget http://ipecho.net/plain -O - -q ; echo"
 
+
+# Functions
+# Make nvim follow symlinks when opening a file
+function nvim() {
+  args=()
+  for i in $@; do
+    if [[ -h $i ]]; then
+      args+=`readlink $i`
+    else
+      args+=$i
+    fi
+  done
+
+  /usr/bin/nvim -p "${args[@]}"
+}
+
 # Enable searching through history
 bindkey '^R' history-incremental-pattern-search-backward
 
