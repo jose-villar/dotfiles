@@ -2,6 +2,7 @@ let mapleader=" "
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>somv :so $MYVIMRC<CR>
+nmap <Leader>pwd :pwd<CR>
 
 "Git
 "Press dv on the file that has merge conflicts, in the status menu
@@ -126,3 +127,6 @@ function! ForgetUndo()
   exe "normal a \<BS>\<Esc>"
   let &undolevels = old_undolevels
 endfunction
+
+
+command! -range=% NumberedLists let [c,d]=[0,0] | <line1>,<line2>g/^/let [c,d]=[line('.')==d+1 ? c+1 : 1, line('.')] | s//\=c.'. '
