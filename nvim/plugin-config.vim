@@ -97,10 +97,6 @@ let g:lightline.inactive = {
 \           [ 'gitbranch', 'gitstats', 'readonly', 'filename', 'modified' ]
 \ ]
 \}
-" let g:lightline.inactive = {
-"       \ 'left': [ [ 'filename' ] ],
-"       \ 'right': [ [ 'lineinfo' ],
-      " \            [ 'percent' ] ] }
 
 " Icons
 let g:lightline#ale#indicator_checking = "\uf110 "
