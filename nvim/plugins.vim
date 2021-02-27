@@ -49,7 +49,9 @@ Plug 'jiangmiao/auto-pairs'
 
 " Syntax
 " A collection of languaje packs
- Plug 'sheerun/vim-polyglot' "Also helps for indenting properly
+Plug 'sheerun/vim-polyglot' "Also helps for indenting properly
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Git
 Plug 'mhinz/vim-signify'
