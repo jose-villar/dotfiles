@@ -57,6 +57,10 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
+" Tests
+Plug 'vim-test/vim-test'
+Plug 'tpope/vim-dispatch'
+
 " Css
 Plug 'ap/vim-css-color'
 

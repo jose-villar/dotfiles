@@ -101,6 +101,13 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 nnoremap <silent> <C-p> :TmuxNavigatePrevious<CR>
 
+" vim-test
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-v> :TestVisit<CR>
+
 function! FixLastSpellingError() abort
   normal! mm[s1z=`m
 endfunction

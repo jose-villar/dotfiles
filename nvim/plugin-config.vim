@@ -22,6 +22,10 @@ let g:undotree_WindowLayout = 2
 "Limelight
 let g:limelight_conceal_ctermfg = 'gray'
 
+" Vim-test
+let test#strategy = "dispatch"
+let test#javascript#jest#options = '--coverage'
+
 "Goyo
 function! s:goyo_enter()
   Limelight
