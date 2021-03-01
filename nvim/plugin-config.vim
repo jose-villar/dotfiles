@@ -23,8 +23,38 @@ let g:undotree_WindowLayout = 2
 let g:limelight_conceal_ctermfg = 'gray'
 
 " Vim-test
-let test#strategy = "dispatch"
-let test#javascript#jest#options = '--coverage'
+let g:test#strategy = 'neomake'
+let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
+let g:neomake_open_list = 1
+
+augroup neomake_hook
+  au!
+  autocmd User NeomakeJobFinished call TestFinished()
+  autocmd User NeomakeJobStarted call TestStarted()
+augroup END
+
+" initially empty status
+let g:testing_status = ''
+
+" Start test
+function! TestStarted() abort
+  let g:testing_status = 'Test ⌛'
+endfunction
+
+" Show message when all tests are passing
+function! TestFinished() abort
+  let context = g:neomake_hook_context
+  if context.jobinfo.exit_code == 0
+    let g:testing_status = 'Test ✅'
+  endif
+  if context.jobinfo.exit_code == 1
+    let g:testing_status = 'Test ❌'
+  endif
+endfunction
+
+function! TestStatus() abort
+  return g:testing_status
+endfunction
 
 "Goyo
 function! s:goyo_enter()
@@ -68,6 +98,7 @@ let g:lightline.component_expand = {
 \ 'linter_errors': 'lightline#ale#errors',
 \ 'linter_ok': 'lightline#ale#ok',
 \  'gitbranch': 'FugitiveHead',
+\ 'teststatus': 'TestStatus'
 \ }
 
 " Set color to the components:
@@ -87,7 +118,7 @@ let g:lightline.active = {
 \    [ 'fileformat', 'fileencoding', 'filetype' ],
 \ ],
 \ 'left': [ [ 'mode', 'paste' ],
-\           [ 'gitbranch', 'gitstats', 'readonly', 'filename', 'modified' ]
+\           [ 'gitbranch', 'gitstats', 'readonly', 'filename', 'modified','teststatus' ]
 \ ]
 \}
 

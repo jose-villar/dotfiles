@@ -59,7 +59,7 @@ Plug 'tpope/vim-fugitive'
 
 " Tests
 Plug 'vim-test/vim-test'
-Plug 'tpope/vim-dispatch'
+Plug 'neomake/neomake'
 
 " Css
 Plug 'ap/vim-css-color'
