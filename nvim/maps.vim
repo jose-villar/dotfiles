@@ -17,16 +17,19 @@ nnoremap <C-Left> :vertical resize -10<CR>
 nnoremap <C-Up> :resize +5<CR>
 nnoremap <C-Down> :resize -5<CR>
 
-function! ConvertTabsIntoSpaces()
-  let s:savedPos = getpos('.')
-  set tabstop=2 shiftwidth=2 softtabstop=2
+function! Retab(tabSize) abort
+  let savedPos = getpos('.')
+  exec 'setlocal ts='.a:tabSize.' sw='.a:tabSize.' sts='.a:tabSize
   retab
-  normal!gg=G
-  call setpos('.', s:savedPos)
-  unlet s:savedPos
+  normal!gg=Gzz
+  call setpos('.', savedPos)
 endfunction
 
-nnoremap <Leader>rt :call ConvertTabsIntoSpaces()<CR>
+if !exists(":Retab")
+  command -nargs=1 Retab :call Retab(<f-args>)
+endif
+
+nnoremap <Leader>rt :call Retab(2)<CR>
 
 "Remove highlight from words on ENTER when searching
 nnoremap <silent><CR> :noh<CR><CR>
