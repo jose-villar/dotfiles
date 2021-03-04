@@ -112,12 +112,6 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-v> :TestVisit<CR>
 
-function! FixLastSpellingError() abort
-  normal! mm[s1z=`m
-endfunction
-
-nnoremap <Leader>sc :call FixLastSpellingError()<CR>
-
 "Search and replace
 nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
@@ -130,14 +124,3 @@ function! SortParagraphs() range abort
 endfunction
 
 vnoremap <Leader><F4> :call SortParagraphs()<CR><CR>
-
-" A function to clear the undo history
-function! ForgetUndo()
-  let old_undolevels = &undolevels
-  set undolevels=-1
-  exe "normal a \<BS>\<Esc>"
-  let &undolevels = old_undolevels
-endfunction
-
-
-command! -range=% NumberedLists let [c,d]=[0,0] | <line1>,<line2>g/^/let [c,d]=[line('.')==d+1 ? c+1 : 1, line('.')] | s//\=c.'. '
