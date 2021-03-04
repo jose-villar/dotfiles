@@ -90,7 +90,7 @@ nmap <leader>mtp :! pandoc -t beamer %:t -o %.pdf<CR>
 nmap <leader>oib :! chromium %.pdf &<CR>
 
 "snippets
-imap ,cl<Tab> console.log("");<Esc>2hi
+imap ,cl<Tab> console.log("")<Esc>2hi
 imap ,sout<Tab> System.out.println("");<Esc>2hi
 imap ,mds<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/slides.md<CR>kdd15ja
 imap ,!<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/html.html<CR>7j3wa
