@@ -61,16 +61,13 @@ Plug 'tpope/vim-fugitive'
 " Tests
 Plug 'vim-test/vim-test'
 Plug 'neomake/neomake'
+Plug 'tpope/vim-projectionist'
 
 " Css
 Plug 'ap/vim-css-color'
 
 " Fuzzy finder
 Plug 'wincent/Command-T'
-
-" Pandoc
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
 
 "Follow symlinks automatically
 Plug 'moll/vim-bbye' " optional dependency to consistenly wipe buffers without
