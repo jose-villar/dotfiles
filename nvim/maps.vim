@@ -61,6 +61,19 @@ endfunction
 "Remove trailing whitespaces in a file
 nnoremap <silent><Leader><F5> :call TrimWhiteSpaces()<CR>
 
+"source: http://stolarscy.com/dryobates/2014-05/sorting_paragraphs_in_vim/
+function! SortParagraphs() range abort
+  execute a:firstline . "," . a:lastline . 'd'
+  let @@=join(sort(split(substitute(@@, "\n*$", "", ""), "\n\n")), "\n\n")
+  put!
+endfunction
+
+vnoremap <Leader><F4> :call SortParagraphs()<CR><CR>
+
+"Search and replace
+nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
+vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
+
 function! ExpandCurlyBraces()
   .s/{/{ /ge
   .s/}/ }/ge
@@ -82,21 +95,16 @@ endfunction
 nnoremap <Leader>J :call ExpandCurlyBraces()<CR>
 nnoremap <Leader>j :call ShrinkCurlyBraces()<CR>
 
-" plugins
+"plugins
 map <Leader>nt :NERDTreeFind<CR>
 nnoremap <Leader>h :UndotreeToggle<CR>
 nmap <Leader>nm <Plug>(coc-diagnostic-next)
 nmap <Leader>Nm <Plug>(coc-diagnostic-prev)
 
-" external
-nmap <leader>mtp :! pandoc -t beamer %:t -o %.pdf<CR>
-nmap <leader>oib :! chromium %.pdf &<CR>
-
-"snippets
-imap ,cl<Tab> console.log("")<Esc>hi
-imap ,sout<Tab> System.out.println("");<Esc>2hi
-imap ,mds<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/slides.md<CR>kdd15ja
-imap ,!<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/html.html<CR>7j3wa
+"titlecase
+nmap <Leader>gt <Plug>Titlecase
+vmap <Leader>gt <Plug>Titlecase
+nmap <Leader>gT <Plug>TitlecaseLine
 
 "tmux_navigator
 nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
@@ -105,7 +113,7 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 nnoremap <silent> <C-p> :TmuxNavigatePrevious<CR>
 
-" vim-test
+"vim-test
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
@@ -115,15 +123,12 @@ nmap <silent> t<C-v> :TestVisit<CR>
 "Projectionist
 nnoremap <Leader>a :A<CR>
 
-"Search and replace
-nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
-vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
+"External
+nmap <leader>mtp :! pandoc -t beamer %:t -o %.pdf<CR>
+nmap <leader>oib :! chromium %.pdf &<CR>
 
-"source: http://stolarscy.com/dryobates/2014-05/sorting_paragraphs_in_vim/
-function! SortParagraphs() range abort
-  execute a:firstline . "," . a:lastline . 'd'
-  let @@=join(sort(split(substitute(@@, "\n*$", "", ""), "\n\n")), "\n\n")
-  put!
-endfunction
-
-vnoremap <Leader><F4> :call SortParagraphs()<CR><CR>
+"Snippets
+imap ,cl<Tab> console.log("")<Esc>hi
+imap ,sout<Tab> System.out.println("");<Esc>2hi
+imap ,mds<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/slides.md<CR>kdd15ja
+imap ,!<Tab> <Esc>:read $HOME/.dotfiles/nvim/snippets/html.html<CR>7j3wa

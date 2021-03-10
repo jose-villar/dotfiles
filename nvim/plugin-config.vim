@@ -1,6 +1,9 @@
 "NerdTree
 let NERDTreeQuitOnOpen = 1
 
+"titlecase
+let g:titlecase_map_keys = 0
+
 "Projectionist
 let g:projectionist_heuristics = {
 \  '*': {
