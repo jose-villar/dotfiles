@@ -1,6 +1,22 @@
 "NerdTree
 let NERDTreeQuitOnOpen = 1
 
+"Projectionist
+let g:projectionist_heuristics = {
+\  '*': {
+\     '*.js': {
+\       'alternate': [
+\         '{dirname}/tests/unit/{basename}.test.js'
+\       ],
+\       'type': 'source'
+\     },
+\     '*.test.js': {
+\       'alternate': '{basename}.js',
+\       'type': 'test',
+\     }
+\   }
+\ }
+
 "vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
 

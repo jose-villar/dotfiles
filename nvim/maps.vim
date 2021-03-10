@@ -112,6 +112,9 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-v> :TestVisit<CR>
 
+"Projectionist
+nnoremap <Leader>a :A<CR>
+
 "Search and replace
 nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
