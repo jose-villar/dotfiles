@@ -101,6 +101,10 @@ nnoremap <Leader>h :UndotreeToggle<CR>
 nmap <Leader>nm <Plug>(coc-diagnostic-next)
 nmap <Leader>Nm <Plug>(coc-diagnostic-prev)
 
+"sneak
+map <Leader>s <Plug>Sneak_s
+map <Leader>S <Plug>Sneak_S
+
 "titlecase
 nmap <Leader>gt <Plug>Titlecase
 vmap <Leader>gt <Plug>Titlecase
