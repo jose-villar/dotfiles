@@ -9,12 +9,32 @@ let g:projectionist_heuristics = {
 \  '*': {
 \     '*.js': {
 \       'alternate': [
-\         '{dirname}/tests/unit/{basename}.test.js'
+\         'tests/unit/{basename}.test.js',
+\         'tests/unit/components/{basename}.test.js',
+\         'tests/unit/components/common/{basename}.test.js',
+\         'tests/unit/components/common/routes/{basename}.test.js',
+\         'tests/unit/constants/{basename}.test.js',
+\         'tests/unit/utils/{basename}.test.js',
 \       ],
 \       'type': 'source'
 \     },
 \     '*.test.js': {
-\       'alternate': '{basename}.js',
+\       'alternate': [
+\         '{basename}.js',
+\         'app/{basename}.js',
+\         'app/components/{basename}.js',
+\         'app/components/common/{basename}.js',
+\         'app/components/common/routes/{basename}.js',
+\         'app/constants/{basename}.js',
+\         'app/utils/{basename}.js',
+\         'src/{basename}.js',
+\         'src/{basename}.js',
+\         'src/components/{basename}.js',
+\         'src/components/common/{basename}.js',
+\         'src/components/common/routes/{basename}.js',
+\         'src/constants/{basename}.js',
+\         'src/utils/{basename}.js',
+\        ],
 \       'type': 'test',
 \     }
 \   }
