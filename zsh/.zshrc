@@ -27,7 +27,6 @@ source ~/.dotfiles/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 # Case insensitive suggestions
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-export PATH="$PATH:/home/jose/.gem/ruby/2.7.0/bin"
 # Aliases
 alias ls="ls --color=auto"
 alias q="exit"
