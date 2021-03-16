@@ -3,6 +3,17 @@ nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>somv :so $MYVIMRC<CR>
 nmap <Leader>pwd :pwd<CR>
+nmap <Leader>c ysiw`<ESC>Bw
+nmap <Leader>C ysiW`<ESC>Bw
+nmap <Leader>i ysiw*<ESC>Bw
+nmap <Leader>I ysiW*<ESC>Bw
+nmap <Leader>b ysiw*a*<ESC>ea*<ESC>Bw
+nmap <Leader>B ysiW*a*<ESC>Ea*<ESC>Bw
+nmap <Leader>j i<C-m><ESC>
+
+vmap <Leader>c S`<ESC>
+vmap <Leader>i S*<ESC>
+vmap <Leader>b S*gvS*<ESC>
 
 "Git
 "Press dv on the file that has merge conflicts, in the status menu
@@ -74,28 +85,6 @@ vnoremap <Leader><F4> :call SortParagraphs()<CR><CR>
 nnoremap <Leader>r viw"hy<ESC>/\<<c-r>h\><CR>:%s///gc<left><left><left>
 vnoremap <Leader>r "hy<ESC>/<c-r>h<CR>:%s///gc<left><left><left>
 
-function! ExpandCurlyBraces()
-  .s/{/{ /ge
-  .s/}/ }/ge
-  .s/\s\+,/,/ge
-  .s/,/, /ge
-  .s/\s\s\+/ /ge
-  call TrimWhiteSpace()
-  normal! ==
-endfunction
-
-function! ShrinkCurlyBraces()
-  .s/{ /{/ge
-  .s/ }/}/ge
-  .s/\s\+,/,/ge
-  .s/, /,/ge
-  call TrimWhiteSpace()
-endfunction
-
-nnoremap <Leader>J :call ExpandCurlyBraces()<CR>
-nnoremap <Leader>j :call ShrinkCurlyBraces()<CR>
-
-"plugins
 map <Leader>nt :NERDTreeFind<CR>
 nnoremap <Leader>h :UndotreeToggle<CR>
 nmap <Leader>nm <Plug>(coc-diagnostic-next)
@@ -129,7 +118,7 @@ nnoremap <Leader>a :A<CR>
 
 "External
 nmap <leader>mtp :! pandoc -t beamer %:t -o %.pdf<CR>
-nmap <leader>oib :! chromium %.pdf &<CR>
+nmap <leader>oib :! chromium %:r.pdf &<CR>
 
 "Snippets
 imap ,cl<Tab> console.log("")<Esc>hi
