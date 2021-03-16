@@ -28,7 +28,7 @@ set hidden
 "Spelling
 "use zg to add word to the dictionary, z= to show the list of suggestions, and
 "zw to mark as incorrect
-"set spell spelllang=en,es
+set spell spelllang=en,es
 
 "Sorting
 ":sort
