@@ -110,6 +110,7 @@ colorscheme gruvbox
 highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
 highlight Search cterm=NONE ctermfg=0 ctermbg=3
 highlight ColorColumn cterm=NONE ctermbg=234 ctermfg=NONE
+highlight Comment cterm=italic
 
 
 "*cterm-colors* NR-8    COLOR NAME
