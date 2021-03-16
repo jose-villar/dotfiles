@@ -74,6 +74,10 @@ Plug 'moll/vim-bbye' " optional dependency to consistenly wipe buffers without
 "impacting the windows order.
 Plug 'aymericbeaumet/vim-symlink'
 
+"Pandoc
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
 "Misc
 Plug 'tpope/vim-eunuch' " sugar for UNIX shell commands
 Plug 'tpope/vim-unimpaired' " [l and ]l to navigate through warnings
