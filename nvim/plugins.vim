@@ -70,7 +70,7 @@ Plug 'ap/vim-css-color'
 Plug 'wincent/Command-T'
 
 "Follow symlinks automatically
-Plug 'moll/vim-bbye' " optional dependency to consistenly wipe buffers without
+" Plug 'moll/vim-bbye' " optional dependency to consistenly wipe buffers without
 "impacting the windows order.
 Plug 'aymericbeaumet/vim-symlink'
 
