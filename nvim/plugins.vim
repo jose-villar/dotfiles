@@ -36,6 +36,7 @@ Plug 'yggdroot/indentline' "show vertical indent guidelines
 Plug 'tpope/vim-commentary' "gcc to comment out a line of code
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
+Plug 'tpope/vim-scriptease' "use g= to evaluate an expression
 
 " Status bar
 Plug 'itchyny/lightline.vim'
