@@ -6,23 +6,12 @@ set cc=80
 
 "Folding
 set foldmethod=indent
-"Notes:
-" -zR: unfold all
-" -zM: fold all
-" -za: toggle fold
 
 set noshowmode "hide default mode indicator
 set signcolumn=yes
-set scrolloff=1
-"set scrolloff=999 "number of context lines around the cursor
-"Notes:
-" Center current line: zz
-" View current line on top:zt
-" Move screen up keeping the cursor's position <C-e>
-" Move screen down keeping the cursor's position <C-y>
 
-"Have unwritten changes to a file and open a new file
-"without being forced to write or undo changes first
+" Allow to have unwritten changes to a file and open a new file without being
+" forced to write or undo changes first
 set hidden
 
 "Spelling
@@ -30,14 +19,10 @@ set hidden
 "zw to mark as incorrect
 set spell spelllang=en,es
 
-"Sorting
-":sort
-
-""Line numeration
+"Line numeration
 set number "show current line number
 set relativenumber
 set numberwidth=1
-"Note: use <C-A> in visual mode to increase enumeration
 
 " Searching
 set incsearch " incremental searching
