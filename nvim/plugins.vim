@@ -88,5 +88,6 @@ Plug 'tpope/vim-endwise'
 "By default titlecase maps itself to gt, note that this interferes with the
 "default mapping for switching tabs
 Plug 'christoomey/vim-titlecase'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
