@@ -15,6 +15,8 @@ vmap <Leader>c S`<ESC>
 vmap <Leader>i S*<ESC>
 vmap <Leader>b S*gvS*<ESC>
 
+nmap <Leader>j i<C-m><ESC>
+
 "Git
 "Press dv on the file that has merge conflicts, in the status menu
 "Target branch (active branch):2
