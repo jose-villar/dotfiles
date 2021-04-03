@@ -2,7 +2,8 @@
 "register '+' for the system
 set clipboard=unnamed
 set encoding=utf-8
-set cc=80
+set cc=79
+set termguicolors
 
 "Folding
 set foldmethod=indent
@@ -92,10 +93,10 @@ so ~/.config/nvim/maps.vim
 "THEME
 colorscheme gruvbox
 
-highlight CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
-highlight Search cterm=NONE ctermfg=0 ctermbg=3
-highlight ColorColumn cterm=NONE ctermbg=234 ctermfg=NONE
-highlight Comment cterm=italic
+hi CursorLine cterm=NONE ctermbg=24 ctermfg=NONE guifg=24 guibg=#121212
+hi Search cterm=NONE ctermfg=0 ctermbg=3
+hi ColorColumn cterm=NONE ctermbg=234 ctermfg=NONE guifg=24 guibg=#1d2021
+hi Comment cterm=italic
 
 
 "*cterm-colors* NR-8    COLOR NAME
