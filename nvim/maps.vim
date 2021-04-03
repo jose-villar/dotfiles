@@ -42,6 +42,25 @@ endif
 
 nnoremap <Leader>rt :call Retab(2)<CR>
 
+function! GoToNextSlide() abort
+  normal]]zt
+endfunction
+
+function! GoToPrevSlide() abort
+  normal[[zt
+endfunction
+
+if !exists(":GoToNextSlide")
+  command GoToNextSlide :call GoToNextSlide()
+endif
+
+if !exists(":GoToPrevSlide")
+  command GoToPrevSlide :call GoToPrevSlide()
+endif
+
+nmap <Leader><Right> :GoToNextSlide<CR>
+nmap <Leader><Left> :GoToPrevSlide<CR>
+
 "Remove highlight from words on ENTER when searching
 nnoremap <silent><CR> :noh
 
