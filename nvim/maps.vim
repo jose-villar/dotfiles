@@ -43,7 +43,7 @@ endif
 nnoremap <Leader>rt :call Retab(2)<CR>
 
 "Remove highlight from words on ENTER when searching
-nnoremap <silent><CR> :noh<CR><CR>
+nnoremap <silent><CR> :noh
 
 "Removes trailing whitespaces all over the file
 function! TrimWhiteSpaces()
