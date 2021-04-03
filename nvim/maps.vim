@@ -70,7 +70,9 @@ function! TrimWhiteSpace()
 endfunction
 
 "Remove trailing whitespaces in a file
-nnoremap <silent><Leader><F5> :call TrimWhiteSpaces()<CR>
+nnoremap <silent><Leader><BS> :call TrimWhiteSpaces()<CR>
+
+nnoremap <silent><Leader><F5> :w <BAR> :e %<CR>
 
 "source: http://stolarscy.com/dryobates/2014-05/sorting_paragraphs_in_vim/
 function! SortParagraphs() range abort
