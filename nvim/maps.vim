@@ -3,19 +3,25 @@ nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>somv :so $MYVIMRC<CR>
 nmap <Leader>pwd :pwd<CR>
-nmap <Leader>c ysiw`<ESC>Bw
-nmap <Leader>C ysiW`<ESC>Bw
-nmap <Leader>i ysiw*<ESC>Bw
-nmap <Leader>I ysiW*<ESC>Bw
-nmap <Leader>b ysiw*a*<ESC>ea*<ESC>Bw
-nmap <Leader>B ysiW*a*<ESC>Ea*<ESC>Bw
-nmap <Leader>j i<C-m><ESC>
+
+nmap <Leader>c ysiw`<ESC>3w
+nmap <Leader>C ysiW`<ESC>3w
+nmap <Leader>i ysiw*<ESC>3w
+nmap <Leader>I ysiW*<ESC>3w
+nmap <Leader>b ysiw*a*<ESC>ea*<ESC>4w
+nmap <Leader>B ysiW*a*<ESC>Ea*<ESC>4w
 
 vmap <Leader>c S`<ESC>
 vmap <Leader>i S*<ESC>
 vmap <Leader>b S*gvS*<ESC>
 
 nmap <Leader>j i<C-m><ESC>
+
+" Sounds
+nmap <Leader>0l :Dispatch play ~/Documents/Sounds/laugh_and_applause.mp3<CR>
+nmap <Leader>0f :Dispatch play ~/Documents/Sounds/fake_applause.mp3<CR>
+nmap <Leader>0b :Dispatch play ~/Documents/Sounds/boo.mp3<CR>
+nmap <Leader>0a :Dispatch play ~/Documents/Sounds/applause.mp3<CR>
 
 "Git
 "Press dv on the file that has merge conflicts, in the status menu
