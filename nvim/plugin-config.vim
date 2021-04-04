@@ -179,7 +179,6 @@ let g:lightline.active = {
 
 let g:lightline.inactive = {
 \ 'right': [
-\    [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
 \    [ 'percent', 'lineinfo' ],
 \    [ 'fileformat', 'fileencoding', 'filetype' ],
 \ ],
