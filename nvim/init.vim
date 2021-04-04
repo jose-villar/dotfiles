@@ -37,19 +37,6 @@ set wildignore+=*/node_modules/**,*/build/**,_site,*/__pycache__/,*/venv/*,
       \*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,
       \*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 
-"To find a file
-":find **/<fileName>
-":ls
-":b
-"To find a word inside the files
-":vim /word/g **/*
-"To search and replace do the following:
-"1.- vimgrep/<jose>/gj **/*
-"2.- cfdo %s/<jose>/<pato>/g | update
-"Notes:
-" - You can use copen to navigate through the quickfix list
-" - The j option is to prevent vim from jumping to the first occurence
-
 "Tabs and spaces
 set expandtab "Use spaces instead of tab characters
 set tabstop=2
@@ -97,22 +84,3 @@ hi CursorLine cterm=NONE ctermbg=24 ctermfg=NONE guifg=24 guibg=#121212
 hi Search cterm=NONE ctermfg=0 ctermbg=3
 hi ColorColumn cterm=NONE ctermbg=234 ctermfg=NONE guifg=24 guibg=#1d2021
 hi Comment cterm=italic
-
-
-"*cterm-colors* NR-8    COLOR NAME
-"0       Black
-"0*      DarkGray, DarkGrey
-"1       DarkRed
-"1*      Red, LightRed
-"2       DarkGreen
-"2*      Green, LightGreen
-"3       Brown, DarkYellow
-"3*      Yellow, LightYellow
-"4       DarkBlue
-"4*      Blue, LightBlue
-"5       DarkMagenta
-"5*      Magenta, LightMagenta
-"6       DarkCyan
-"6*      Cyan, LightCyan
-"7       LightGray, LightGrey, Gray, Grey
-"7*      White
