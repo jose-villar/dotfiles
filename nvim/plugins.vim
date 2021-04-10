@@ -66,6 +66,7 @@ Plug 'tpope/vim-projectionist'
 
 " Css
 Plug 'ap/vim-css-color'
+Plug 'KabbAmine/vCoolor.vim'
 
 " Fuzzy finder
 Plug 'wincent/Command-T'
