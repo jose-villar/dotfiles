@@ -70,7 +70,7 @@ nmap <Leader><Right> :GoToNextSlide<CR>
 nmap <Leader><Left> :GoToPrevSlide<CR>
 
 "Remove highlight from words on ENTER when searching
-nnoremap <silent><CR> :noh
+nnoremap <silent><CR> :noh<CR>
 
 "Removes trailing whitespaces all over the file
 function! TrimWhiteSpaces()
