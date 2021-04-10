@@ -149,6 +149,12 @@ nnoremap <Leader>a :A<CR>
 nmap <leader>mtp :! pandoc -t beamer %:t -o %.pdf<CR>
 nmap <leader>oib :! chromium %:r.pdf &<CR>
 
+function! MakeTags() abort
+  execute '!ctags -R .'
+endfunction
+
+command! MakeTags :call MakeTags()
+
 "Snippets
 imap ,cl<Tab> console.log("")<Esc>hi
 imap ,sout<Tab> System.out.println("");<Esc>2hi
