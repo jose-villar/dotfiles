@@ -69,7 +69,7 @@ Plug 'ap/vim-css-color'
 Plug 'KabbAmine/vCoolor.vim'
 
 " Fuzzy finder
-Plug 'wincent/Command-T'
+Plug 'ctrlpvim/ctrlp.vim'
 
 "Follow symlinks automatically
 " Plug 'moll/vim-bbye' " optional dependency to consistenly wipe buffers without
