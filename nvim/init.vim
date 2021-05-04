@@ -55,13 +55,11 @@ set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
 set cindent
 set autoindent
 
-"Undo history
-set nobackup
 set noswapfile
-set nowritebackup
-set undolevels=1000
 set history=1000
 
+"Undo history
+set undolevels=1000
 if has('persistent_undo')
   set undodir=$HOME/.config/nvim/undoHistory
   set undofile
