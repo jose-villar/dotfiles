@@ -17,6 +17,28 @@ vmap <Leader>b S*gvS*<ESC>
 
 nmap <Leader>j i<C-m><ESC>
 
+" Operator-pending mappings
+" inside next parenthesis
+onoremap in( :<C-u>normal! f(vi(<Cr>
+" inside last parenthesis
+onoremap il( :<C-u>normal! F)vi(<Cr>
+" inside next square brackets
+onoremap in[ :<C-u>normal! f[vi[<Cr>
+" inside last square brackets
+onoremap il[ :<C-u>normal! F]vi[<Cr>
+" inside next brackets
+onoremap in{ :<C-u>normal! f{vi{<Cr>
+" inside last brackets
+onoremap il{ :<C-u>normal! F}vi{<Cr>
+" inside next single quotes
+onoremap in' :<C-u>normal! f'vi'<Cr>
+" inside last single quotes
+onoremap il' :<C-u>normal! F'vi'<Cr>
+" inside next double quotes
+onoremap in" :<C-u>normal! f"vi"<Cr>
+" inside last double quotes
+onoremap il" :<C-u>normal! F"vi"<Cr>
+
 " Sounds
 nmap <Leader>0l :Dispatch play ~/Documents/Sounds/laugh_and_applause.mp3<CR>
 nmap <Leader>0f :Dispatch play ~/Documents/Sounds/fake_applause.mp3<CR>
