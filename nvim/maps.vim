@@ -1,19 +1,9 @@
 let mapleader=" "
+let maplocalleader = "\\"
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>somv :so $MYVIMRC<CR>
 nmap <Leader>pwd :pwd<CR>
-
-nmap <Leader>c ysiw`<ESC>3w
-nmap <Leader>C ysiW`<ESC>3w
-nmap <Leader>i ysiw*<ESC>3w
-nmap <Leader>I ysiW*<ESC>3w
-nmap <Leader>b ysiw*a*<ESC>ea*<ESC>4w
-nmap <Leader>B ysiW*a*<ESC>Ea*<ESC>4w
-
-vmap <Leader>c S`<ESC>
-vmap <Leader>i S*<ESC>
-vmap <Leader>b S*gvS*<ESC>
 
 nmap <Leader>j i<C-m><ESC>
 
