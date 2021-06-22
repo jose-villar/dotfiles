@@ -87,6 +87,9 @@ nmap <Leader><Left> :GoToPrevSlide<CR>
 "Remove highlight from words on ENTER when searching
 nnoremap <silent><CR> :noh<CR>
 
+" Automatically insert very magic when searching
+nnoremap / /\v
+
 " Change double white spaces for single ones in the current line
 function! TrimDoubleWhiteSpaces()
   let s:savedPos = getpos(".")
