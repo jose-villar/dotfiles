@@ -84,6 +84,20 @@ nmap <Leader><Left> :GoToPrevSlide<CR>
 "Remove highlight from words on ENTER when searching
 nnoremap <silent><CR> :noh<CR>
 
+" Change double white spaces for single ones in the current line
+function! TrimDoubleWhiteSpaces()
+  let s:savedPos = getpos(".")
+  let s:s=@/
+  .s/\s\s\+/ /ge
+  let @/=s:s
+  nohl
+  unlet s:s
+  call setpos('.', s:savedPos)
+  unlet s:savedPos
+endfunction
+
+nnoremap <silent><Leader>2<BS> :call TrimDoubleWhiteSpaces()<CR>
+
 "Removes trailing whitespaces all over the file
 function! TrimWhiteSpaces()
   let s:savedPos = getpos(".")
