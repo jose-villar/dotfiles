@@ -42,6 +42,9 @@ nmap <Leader>dg2 :diffget //2<BAR>:diffupdate<CR>
 "Merge branch (named in the git merge command):3
 nmap <Leader>dg3 :diffget //3<BAR>:diffupdate<CR>
 
+" Open previous buffer to the right
+nnoremap <Leader>op :exe "rightbelow vsplit " . bufname("#")<CR>
+
 "Resize panes
 nnoremap <C-Right> :vertical resize +10<CR>
 nnoremap <C-Left> :vertical resize -10<CR>
