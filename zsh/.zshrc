@@ -19,7 +19,7 @@ zstyle :compinstall filename '/home/jose/.zshrc'
 # End of lines added by compinstall
 
 # Theme
-source ~/.dotfiles/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -39,11 +39,11 @@ alias whatsmyip="wget http://ipecho.net/plain -O - -q ; echo"
 bindkey '^R' history-incremental-pattern-search-backward
 
 # Other plugins
-source ~/.dotfiles/zsh/other-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/other-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-source ~/.dotfiles/zsh/other-plugins/zsh-z/zsh-z.plugin.zsh
+source ~/.config/zsh/other-plugins/zsh-z/zsh-z.plugin.zsh
 # The following line must go anywhere after sourcing the z plugin
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 # Must be at the end of the file
-source ~/.dotfiles/zsh/other-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/other-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
